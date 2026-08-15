@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cristian Suarez | Machine Learning & Data Science</title>
+
+    <meta name="description"
+          content="Cristian Suarez - Electronic Engineer focused on Machine Learning, Data Science and Computer Vision.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0f;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 11, 15, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #24242c;
+        }
+
+        .nav-content {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: #b8b8c2;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid #33333e;
+            border-radius: 50px;
+            color: #b8b8c2;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 36px);
+            font-weight: 500;
+            color: #d0d0d8;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #9999a5;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 13px 22px;
+            border-radius: 8px;
+            border: 1px solid #383842;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .button.primary {
+            background: #8b5cf6;
+            border-color: #8b5cf6;
+            color: white;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 0;
+            border-top: 1px solid #202028;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #888894;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text {
+            color: #aaaab4;
+            font-size: 17px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat {
+            border: 1px solid #292932;
+            border-radius: 12px;
+            padding: 25px;
+            background: #101015;
+        }
+
+        .stat h3 {
+            font-size: 30px;
+            color: #8b5cf6;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: #888894;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            background: #101015;
+            border: 1px solid #292932;
+            border-radius: 14px;
+            padding: 28px;
+            transition: 0.25s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #555564;
+        }
+
+        .project-number {
+            color: #8b5cf6;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .project h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #92929d;
+            margin-bottom: 20px;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 22px;
+        }
+
+        .tech {
+            background: #1a1a21;
+            border: 1px solid #2b2b35;
+            padding: 5px 9px;
+            border-radius: 5px;
+            color: #bdbdc7;
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: #a78bfa;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-category {
+            border: 1px solid #292932;
+            border-radius: 12px;
+            padding: 25px;
+            background: #101015;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .skill-category p {
+            color: #92929d;
+            font-size: 14px;
+        }
+
+        /* EXPERIENCE */
+
+        .experience {
+            border-left: 2px solid #292932;
+            padding-left: 30px;
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            position: absolute;
+            left: -36px;
+            top: 8px;
+        }
+
+        .experience-item h3 {
+            font-size: 21px;
+        }
+
+        .experience-item .date {
+            color: #8b5cf6;
+            font-size: 13px;
+            margin: 5px 0 10px;
+        }
+
+        .experience-item p {
+            color: #92929d;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact p {
+            color: #92929d;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer {
+            border-top: 1px solid #202028;
+            padding: 30px 0;
+            color: #666672;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .projects,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="container nav-content">
+
+        <div class="logo">
+            Cristian<span>.</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="container hero-content">
+
+        <div class="tag">
+            Electronic Engineer · Machine Learning · Data Science
+        </div>
+
+        <h1>
+            Cristian <span>Suarez</span>
+        </h1>
+
+        <h2>
+            Building data-driven & machine learning solutions.
+        </h2>
+
+        <p>
+            Electronic Engineer with hands-on experience in Machine Learning,
+            Data Science and Computer Vision. I enjoy building solutions
+            from data collection and preprocessing to model training,
+            evaluation and real-world applications.
+        </p>
+
+        <div class="buttons">
+
+            <a class="button primary" href="#projects">
+                View my projects
+            </a>
+
+            <a class="button"
+               href="https://github.com/CristianSuarez77"
+               target="_blank">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">About me</h2>
+
+        <p class="section-subtitle">
+            Engineer with a strong interest in machine learning and data.
+        </p>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am an Electronic Engineer from Universidad Distrital
+                    with a strong interest in Machine Learning, Data Science
+                    and Artificial Intelligence.
+                </p>
+
+                <p>
+                    My experience includes implementing machine learning
+                    algorithms from scratch, working with real datasets,
+                    developing computer vision models and building
+                    end-to-end ML workflows.
+                </p>
+
+                <p>
+                    I enjoy understanding problems from first principles,
+                    experimenting with different approaches and turning
+                    ideas into working solutions.
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>ML</h3>
+                    <p>Machine Learning & Deep Learning</p>
+                </div>
+
+                <div class="stat">
+                    <h3>CV</h3>
+                    <p>Computer Vision</p>
+                </div>
+
+                <div class="stat">
+                    <h3>Python</h3>
+                    <p>Data & ML development</p>
+                </div>
+
+                <div class="stat">
+                    <h3>SQL</h3>
+                    <p>Data analysis</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title">Featured Projects</h2>
+
+        <p class="section-subtitle">
+            Selected projects where I applied machine learning and data
+            science concepts to real problems.
+        </p>
+
+
+        <div class="projects">
+
+
+            <!-- PROJECT 1 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    01 · COMPUTER VISION
+                </div>
+
+                <h3>
+                    Colombian Sign Language Recognition
+                </h3>
+
+                <p>
+                    Developed an end-to-end computer vision pipeline to
+                    recognize Colombian Sign Language vowels using a
+                    fine-tuned YOLO model.
+                </p>
+
+                <div class="technologies">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">PyTorch</span>
+                    <span class="tech">YOLO</span>
+                    <span class="tech">OpenCV</span>
+                    <span class="tech">Data Augmentation</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/CristianSuarez77/Proyecto_Lengua_Senas_Col"
+                   target="_blank">
+                    View on GitHub →
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 2 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    02 · MACHINE LEARNING
+                </div>
+
+                <h3>
+                    Machine Learning Algorithms From Scratch
+                </h3>
+
+                <p>
+                    Implemented fundamental machine learning algorithms
+                    from scratch, including Linear Regression, Perceptron,
+                    MLP and K-Means, together with Gradient Descent and
+                    regularization techniques.
+                </p>
+
+                <div class="technologies">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">NumPy</span>
+                    <span class="tech">Machine Learning</span>
+                    <span class="tech">Gradient Descent</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/CristianSuarez77"
+                   target="_blank">
+                    View projects →
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 3 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    03 · COMPUTER VISION
+                </div>
+
+                <h3>
+                    People & Vehicle Detection
+                </h3>
+
+                <p>
+                    Developed a computer vision solution for detecting
+                    and classifying people and vehicles using deep learning
+                    and real-time image processing.
+                </p>
+
+                <div class="technologies">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">YOLO</span>
+                    <span class="tech">PyTorch</span>
+                    <span class="tech">OpenCV</span>
+                    <span class="tech">MediaPipe</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/CristianSuarez77/MVP_People"
+                   target="_blank">
+                    View on GitHub →
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 4 -->
+
+            <article class="project">
+
+                <div class="project-number">
+                    04 · DATA SCIENCE
+                </div>
+
+                <h3>
+                    Music Emotion Classification
+                </h3>
+
+                <p>
+                    Machine learning project focused on classifying
+                    musical emotions using audio features, data
+                    preprocessing, feature extraction and model evaluation.
+                </p>
+
+                <div class="technologies">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">Data Analysis</span>
+                    <span class="tech">Feature Extraction</span>
+                    <span class="tech">Machine Learning</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/CristianSuarez77"
+                   target="_blank">
+                    View projects →
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2 class="section-title">Technical Skills</h2>
+
+        <p class="section-subtitle">
+            Tools and technologies I use to build data-driven solutions.
+        </p>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-category">
+
+                <h3>Data Science</h3>
+
+                <p>
+                    Python · SQL · Pandas · NumPy ·
+                    Data Analysis · Data Preprocessing ·
+                    Data Visualization
+                </p>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Machine Learning</h3>
+
+                <p>
+                    Scikit-learn · PyTorch ·
+                    Deep Learning · Model Training ·
+                    Validation · Regularization
+                </p>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Computer Vision</h3>
+
+                <p>
+                    YOLO · OpenCV · MediaPipe ·
+                    Object Detection ·
+                    Real-time Inference
+                </p>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Programming</h3>
+
+                <p>
+                    Python · C · C++ · Java ·
+                    MATLAB · SQL
+                </p>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Development</h3>
+
+                <p>
+                    Git · GitHub · Linux ·
+                    Jupyter · MATLAB · Simulink
+                </p>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Engineering</h3>
+
+                <p>
+                    Embedded Systems · Raspberry Pi ·
+                    Arduino · ESP32 · FPGA
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <h2 class="section-title">Experience</h2>
+
+        <p class="section-subtitle">
+            Professional experience and engineering background.
+        </p>
+
+
+        <div class="experience">
+
+            <div class="experience-item">
+
+                <h3>
+                    Electronics Engineering Intern
+                </h3>
+
+                <div class="date">
+                    Fuerza Aeroespacial Colombiana · 2025
+                </div>
+
+                <p>
+                    Supported electronic system development, technical
+                    requirements, PCB design, system integration,
+                    wiring and validation activities for an aviation
+                    training device.
+                </p>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <h3>
+                    Customer Service Representative
+                </h3>
+
+                <div class="date">
+                    Sutherland · 2023–2024
+                </div>
+
+                <p>
+                    Developed strong communication, problem-solving and
+                    customer service skills while assisting English-speaking
+                    customers.
+                </p>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <h3>
+                    Live Correspondent & Scout
+                </h3>
+
+                <div class="date">
+                    STATS PERFORM · 2020–2023
+                </div>
+
+                <p>
+                    Collected and reported real-time sports data under
+                    time-sensitive conditions where accuracy and attention
+                    to detail were essential.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact">
+
+            <h2 class="section-title">
+                Let's connect
+            </h2>
+
+            <p>
+                I am always interested in learning, building new things
+                and connecting with people working on interesting
+                technology and data problems.
+            </p>
+
+
+            <div class="contact-links">
+
+                <a class="button primary"
+                   href="https://github.com/CristianSuarez77"
+                   target="_blank">
+                    GitHub
+                </a>
+
+                <a class="button"
+                   href="https://www.linkedin.com"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="container">
+        © 2026 Cristian Suarez · Machine Learning & Data Science
+    </div>
+
+</footer>
+
+
+</body>
+</html>
